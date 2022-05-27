@@ -34,7 +34,7 @@ tracking_plans:
   plan_schemas:
     # For each reflekt tracking plan, specify schema in database with raw event data.
     # Replace the example mapping below with your mappings
-    patty-bar: patty_bar_segment
+    patty-bar: ['patty_bar_web']
 
   # OPTIONAL (metadata:)
   # Define a validation schema for your metadata. This is tested when running
@@ -73,5 +73,5 @@ dbt:
 
     # OPTIONAL (package_schemas:)
     # For each tracking plan, specify schema where models in Reflekt dbt package will be materialized.
-    # package_schemas:
-    #   example-plan: example_schema
+    package_schemas:
+      patty-bar: analytics
