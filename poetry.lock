@@ -352,7 +352,7 @@ full = ["numpy", "pandas"]
 
 [[package]]
 name = "reflekt"
-version = "0.1.0"
+version = "0.1.1"
 description = "reflekt is a command-line interface (CLI) and continuous integration (CI) tool for your tracking plan."
 category = "main"
 optional = false
@@ -911,8 +911,8 @@ redshift-connector = [
     {file = "redshift_connector-2.0.907-py3-none-any.whl", hash = "sha256:f0c75df717dd2eb7e9299dc3e83c9d505186490d4baac944e0bfd23414beca6b"},
 ]
 reflekt = [
-    {file = "reflekt-0.1.0-py3-none-any.whl", hash = "sha256:247835eff0e6e6000e1c9808dbbe5d45c3a436f8825448b46dc79b03bc9cc168"},
-    {file = "reflekt-0.1.0.tar.gz", hash = "sha256:1d430b3168fce08b9786a6c9411b12720f12b6af1df8e7df1f42e68e1509568f"},
+    {file = "reflekt-0.1.1-py3-none-any.whl", hash = "sha256:23561d4ceb999975a1d36177284d056ef1fb0488afe2abf17c4f458b31f7367b"},
+    {file = "reflekt-0.1.1.tar.gz", hash = "sha256:61052fc021ff96e48f3a0e47c1a2143a563fb181a0eca239506d30065a4a3186"},
 ]
 requests = [
     {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},

@@ -1,0 +1,287 @@
+version: 2
+sources:
+  - name: patty_bar_web
+    description: Schema in Snowflake where data for the patty-bar Segment
+      source is stored.
+    tables:
+      - name: pages
+        description: A table with page() calls fired on patty-bar.
+        columns:
+          - name: id
+            description: The unique identifier of the page call.
+          - name: name
+            description: The page name (used to group similar pages, e.g.,
+              `Spot Report`).
+          - name: context_library_name
+            description: The name of the library that invoked the call.
+          - name: context_library_version
+            description: The version of the library that invoked the call.
+          - name: original_timestamp
+            description: Time on the client device when call was invoked,
+              OR the timestamp value manually passed in through server-side
+              libraries.
+          - name: sent_at
+            description: Time on client device when call was sent, OR sent_at
+              value manually passed in. NOTE - sent_at is NOT USEFUL for
+              analysis since it’s not always trustworthy as it can be easily
+              adjusted and affected by clock skew.
+          - name: received_at
+            description: Time on Segment server clock when call was received.
+              received_at is used as sort key in Warehouses. For max query
+              speed, received_at is the recommended timestamp for analysis
+              when chronology DOES NOT matter as chronology is NOT ENSURED.
+          - name: timestamp
+            description: When the call was invoked. Calculated by Segment
+              to correct client-device clock skew. Use for analysis when
+              chronology DOES matter.
+          - name: anonymous_id
+            description: A pseudo-unique substitute for a user ID, for cases
+              when we don’t have an absolutely unique identifier. A user_id
+              or an anonymous_id is required for all events.
+          - name: user_id
+            description: Unique identifier for the user. A user_id or an
+              anonymous_id is required for all events.
+          - name: context_page_url
+            description: The URL of the page where the call was invoked.
+          - name: context_page_path
+            description: The path of the page where the call was invoked.
+          - name: context_page_title
+            description: The title of the page where the call was invoked.
+          - name: context_page_search
+            description: The the URL search query parameters of the page
+              where the call was invoked.
+          - name: context_page_referrer
+            description: The URL of the page that referred the user to the
+              page where the call was invoked.
+          - name: context_ip
+            description: The IP address the event was generated from.
+          - name: context_user_agent
+            description: The user agent string of the device generating
+              the event.
+          - name: path
+            description: Path portion of the page’s URL. Equivalent to canonical
+              path which defaults to location.pathname from the DOM API.
+          - name: product_type
+            description: The product type shown on the page.
+          - name: referrer
+            description: Previous page’s full URL. Equivalent to document.referrer
+              from the DOM API.
+          - name: search
+            description: Query string portion of the page’s URL. Equivalent
+              to location.search from the DOM API.
+          - name: title
+            description: Page’s title. Equivalent to document.title from
+              the DOM API.
+          - name: url
+            description: Page’s full URL. Segment first looks for the canonical
+              URL. If the canonical URL is not provided, Segment uses location.href
+              from the DOM API.
+      - name: tracks
+        description: A table with track() event calls fired on patty-bar.
+        columns:
+          - name: id
+            description: The unique identifier of the event call.
+          - name: context_library_name
+            description: Name of the library that invoked the call.
+          - name: context_library_version
+            description: Version of the library that invoked the call.
+          - name: original_timestamp
+            description: Time on the client device when call was invoked,
+              OR the timestamp value manually passed in through server-side
+              libraries.
+          - name: sent_at
+            description: Timestamp when call was sent by client device,
+              OR sent_at value manually passed in. This timestamp can be
+              affected by clock skew on the client device.
+          - name: received_at
+            description: Timestamp when Segment's servers received the call.
+          - name: timestamp
+            description: Timestamp when the call was invoked. Calculated
+              by Segment to correct client-device clock skew.
+          - name: anonymous_id
+            description: A pseudo-unique substitute for a user ID, for cases
+              when absolute unique identifier not available (e.g. user not
+              signed in).
+          - name: user_id
+            description: Unique identifier for the user.
+      - name: Account Created
+        description: Fired when a user creates an account.
+        columns:
+          - name: id
+            description: The unique identifier of the event call.
+          - name: context_library_name
+            description: Name of the library that invoked the call.
+          - name: context_library_version
+            description: Version of the library that invoked the call.
+          - name: original_timestamp
+            description: Time on the client device when call was invoked,
+              OR the timestamp value manually passed in through server-side
+              libraries.
+          - name: sent_at
+            description: Timestamp when call was sent by client device,
+              OR sent_at value manually passed in. This timestamp can be
+              affected by clock skew on the client device.
+          - name: received_at
+            description: Timestamp when Segment's servers received the call.
+          - name: timestamp
+            description: Timestamp when the call was invoked. Calculated
+              by Segment to correct client-device clock skew.
+          - name: anonymous_id
+            description: A pseudo-unique substitute for a user ID, for cases
+              when absolute unique identifier not available (e.g. user not
+              signed in).
+          - name: user_id
+            description: Unique identifier for the user.
+      - name: Account Deleted
+        description: Fired when a user deletes their account.
+        columns:
+          - name: id
+            description: The unique identifier of the event call.
+          - name: context_library_name
+            description: Name of the library that invoked the call.
+          - name: context_library_version
+            description: Version of the library that invoked the call.
+          - name: original_timestamp
+            description: Time on the client device when call was invoked,
+              OR the timestamp value manually passed in through server-side
+              libraries.
+          - name: sent_at
+            description: Timestamp when call was sent by client device,
+              OR sent_at value manually passed in. This timestamp can be
+              affected by clock skew on the client device.
+          - name: received_at
+            description: Timestamp when Segment's servers received the call.
+          - name: timestamp
+            description: Timestamp when the call was invoked. Calculated
+              by Segment to correct client-device clock skew.
+          - name: anonymous_id
+            description: A pseudo-unique substitute for a user ID, for cases
+              when absolute unique identifier not available (e.g. user not
+              signed in).
+          - name: user_id
+            description: Unique identifier for the user.
+      - name: Checkout Step Viewed
+        description: Fire when a checkout step is viewed
+        columns:
+          - name: id
+            description: The unique identifier of the event call.
+          - name: context_library_name
+            description: Name of the library that invoked the call.
+          - name: context_library_version
+            description: Version of the library that invoked the call.
+          - name: original_timestamp
+            description: Time on the client device when call was invoked,
+              OR the timestamp value manually passed in through server-side
+              libraries.
+          - name: sent_at
+            description: Timestamp when call was sent by client device,
+              OR sent_at value manually passed in. This timestamp can be
+              affected by clock skew on the client device.
+          - name: received_at
+            description: Timestamp when Segment's servers received the call.
+          - name: timestamp
+            description: Timestamp when the call was invoked. Calculated
+              by Segment to correct client-device clock skew.
+          - name: anonymous_id
+            description: A pseudo-unique substitute for a user ID, for cases
+              when absolute unique identifier not available (e.g. user not
+              signed in).
+          - name: user_id
+            description: Unique identifier for the user.
+          - name: checkout_id
+            description: Checkout transaction ID
+          - name: payment_method
+            description: The payment method chosen
+          - name: shipping_method
+            description: The shipping method chosen
+          - name: step
+            description: Number representing a step in the checkout process
+      - name: Order Completed
+        description: Fired when an order is successfully completed by the
+          customer.
+        columns:
+          - name: id
+            description: The unique identifier of the event call.
+          - name: context_library_name
+            description: Name of the library that invoked the call.
+          - name: context_library_version
+            description: Version of the library that invoked the call.
+          - name: original_timestamp
+            description: Time on the client device when call was invoked,
+              OR the timestamp value manually passed in through server-side
+              libraries.
+          - name: sent_at
+            description: Timestamp when call was sent by client device,
+              OR sent_at value manually passed in. This timestamp can be
+              affected by clock skew on the client device.
+          - name: received_at
+            description: Timestamp when Segment's servers received the call.
+          - name: timestamp
+            description: Timestamp when the call was invoked. Calculated
+              by Segment to correct client-device clock skew.
+          - name: anonymous_id
+            description: A pseudo-unique substitute for a user ID, for cases
+              when absolute unique identifier not available (e.g. user not
+              signed in).
+          - name: user_id
+            description: Unique identifier for the user.
+          - name: checkout_id
+            description: Checkout transaction ID
+          - name: currency
+            description: Currency code associated with the transaction
+          - name: order_id
+            description: Order ID
+          - name: products
+            description: Products in the order
+          - name: shipping
+            description: Shipping cost associated with the transaction
+          - name: subtotal
+            description: Order total after discounts but before taxes and
+              shipping
+          - name: tax
+            description: Total tax associated with the transaction
+          - name: total
+            description: Revenue ($) with discounts and coupons added in.
+      - name: Product Added
+        description: Fired when a visitor adds a product to their shopping
+          cart.
+        columns:
+          - name: id
+            description: The unique identifier of the event call.
+          - name: context_library_name
+            description: Name of the library that invoked the call.
+          - name: context_library_version
+            description: Version of the library that invoked the call.
+          - name: original_timestamp
+            description: Time on the client device when call was invoked,
+              OR the timestamp value manually passed in through server-side
+              libraries.
+          - name: sent_at
+            description: Timestamp when call was sent by client device,
+              OR sent_at value manually passed in. This timestamp can be
+              affected by clock skew on the client device.
+          - name: received_at
+            description: Timestamp when Segment's servers received the call.
+          - name: timestamp
+            description: Timestamp when the call was invoked. Calculated
+              by Segment to correct client-device clock skew.
+          - name: anonymous_id
+            description: A pseudo-unique substitute for a user ID, for cases
+              when absolute unique identifier not available (e.g. user not
+              signed in).
+          - name: user_id
+            description: Unique identifier for the user.
+          - name: box_size
+            description: The size of the box (e.g. 12, 24, 36 patties)
+          - name: cart_id
+            description: Cart ID to which the product was added to
+          - name: name
+            description: Name of the product being viewed
+          - name: price
+            description: Price ($) of the product being viewed
+          - name: product_id
+            description: Database id of the product being viewed
+          - name: quantity
+            description: Quantity of the product
+          - name: variant
+            description: Variant of the product (e.g. mild, medium, spicy)
