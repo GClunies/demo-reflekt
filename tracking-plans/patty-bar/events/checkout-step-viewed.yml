@@ -1,0 +1,27 @@
+- version: 1
+  name: Checkout Step Viewed
+  description: Fire when a checkout step is viewed
+  metadata:
+    code_owner: Maura
+    product_owner: Greg
+  properties:
+    - name: checkout_id
+      description: Checkout transaction ID
+      type: string
+      required: true
+    - name: payment_method
+      description: The payment method chosen
+      type: string
+      required: true
+    - name: shipping_method
+      description: The shipping method chosen
+      type: string
+      required: true
+      enum:
+        - standard
+        - express
+        - overnight
+    - name: step
+      description: Number representing a step in the checkout process
+      type: number
+      required: true

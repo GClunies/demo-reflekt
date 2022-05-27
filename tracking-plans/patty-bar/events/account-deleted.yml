@@ -1,0 +1,7 @@
+- version: 1
+  name: Account Deleted
+  description: Fired when a user deletes their account.
+  metadata:
+    code_owner: Maura
+    product_owner: Greg
+  properties: []
