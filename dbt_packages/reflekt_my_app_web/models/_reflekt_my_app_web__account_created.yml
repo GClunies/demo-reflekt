@@ -1,7 +1,7 @@
 version: 2
 models:
-  - name: reflekt_patty_bar_web__tracks
-    description: A table with track() event calls.
+  - name: reflekt_my_app_web__account_created
+    description: Fired when a user creates an account.
     columns:
       - name: event_id
         description: The unique identifier of the event call.

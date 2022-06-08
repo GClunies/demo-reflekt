@@ -1,7 +1,7 @@
 version: 2
 models:
-  - name: reflekt_patty_bar_web__account_created
-    description: Fired when a user creates an account.
+  - name: reflekt_my_app_web__order_completed
+    description: Fired when an order is successfully completed by the customer.
     columns:
       - name: event_id
         description: The unique identifier of the event call.
@@ -33,3 +33,19 @@ models:
           in).
       - name: user_id
         description: Unique identifier for the user.
+      - name: checkout_id
+        description: Checkout transaction ID
+      - name: currency
+        description: Currency code associated with the transaction
+      - name: order_id
+        description: Order ID
+      - name: products
+        description: Products in the order
+      - name: shipping
+        description: Shipping cost associated with the transaction
+      - name: subtotal
+        description: Order total after discounts but before taxes and shipping
+      - name: tax
+        description: Total tax associated with the transaction
+      - name: total
+        description: Revenue ($) with discounts and coupons added in.

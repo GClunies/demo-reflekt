@@ -1,7 +1,7 @@
 version: 2
 models:
-  - name: reflekt_patty_bar_web__product_added
-    description: Fired when a visitor adds a product to their shopping cart.
+  - name: reflekt_my_app_web__tracks
+    description: A table with track() event calls.
     columns:
       - name: event_id
         description: The unique identifier of the event call.
@@ -33,17 +33,3 @@ models:
           in).
       - name: user_id
         description: Unique identifier for the user.
-      - name: box_size
-        description: The size of the box (e.g. 12, 24, 36 patties)
-      - name: cart_id
-        description: Cart ID to which the product was added to
-      - name: name
-        description: Name of the product being viewed
-      - name: price
-        description: Price ($) of the product being viewed
-      - name: product_id
-        description: Database id of the product being viewed
-      - name: quantity
-        description: Quantity of the product
-      - name: variant
-        description: Variant of the product (e.g. mild, medium, spicy)

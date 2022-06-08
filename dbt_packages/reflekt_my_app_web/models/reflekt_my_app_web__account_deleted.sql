@@ -1,8 +1,6 @@
 {{
   config(
-    materialized = 'incremental',
-    unique_key = 'event_id',
-    cluster_by = 'tstamp'
+    materialized = 'view',
   )
 }}
 
@@ -12,10 +10,7 @@ source as (
 
     select *
 
-    from {{ source('patty_bar_web', 'account_deleted') }}
-    {%- if is_incremental() %}
-    where received_at >= ( select max(received_at_tstamp)::date from {{ this }} )
-    {%- endif %}
+    from {{ source('my_app_web', 'account_deleted') }}
 
 ),
 

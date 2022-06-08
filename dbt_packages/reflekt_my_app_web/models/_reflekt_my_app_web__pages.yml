@@ -1,6 +1,6 @@
 version: 2
 models:
-  - name: reflekt_patty_bar_web__pages
+  - name: reflekt_my_app_web__pages
     description: A table with page() calls.
     columns:
       - name: page_id

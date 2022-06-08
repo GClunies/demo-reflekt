@@ -1,7 +1,7 @@
 version: 2
 models:
-  - name: reflekt_patty_bar_web__order_completed
-    description: Fired when an order is successfully completed by the customer.
+  - name: reflekt_my_app_web__checkout_step_viewed
+    description: Fire when a checkout step is viewed
     columns:
       - name: event_id
         description: The unique identifier of the event call.
@@ -35,17 +35,9 @@ models:
         description: Unique identifier for the user.
       - name: checkout_id
         description: Checkout transaction ID
-      - name: currency
-        description: Currency code associated with the transaction
-      - name: order_id
-        description: Order ID
-      - name: products
-        description: Products in the order
-      - name: shipping
-        description: Shipping cost associated with the transaction
-      - name: subtotal
-        description: Order total after discounts but before taxes and shipping
-      - name: tax
-        description: Total tax associated with the transaction
-      - name: total
-        description: Revenue ($) with discounts and coupons added in.
+      - name: payment_method
+        description: The payment method chosen
+      - name: shipping_method
+        description: The shipping method chosen
+      - name: step
+        description: Number representing a step in the checkout process

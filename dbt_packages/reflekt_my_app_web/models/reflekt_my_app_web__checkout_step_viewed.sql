@@ -1,8 +1,6 @@
 {{
   config(
-    materialized = 'incremental',
-    unique_key = 'event_id',
-    cluster_by = 'tstamp'
+    materialized = 'view',
   )
 }}
 
@@ -12,10 +10,7 @@ source as (
 
     select *
 
-    from {{ source('patty_bar_web', 'product_added') }}
-    {%- if is_incremental() %}
-    where received_at >= ( select max(received_at_tstamp)::date from {{ this }} )
-    {%- endif %}
+    from {{ source('my_app_web', 'checkout_step_viewed') }}
 
 ),
 
@@ -24,7 +19,7 @@ renamed as (
     select
         id as event_id,
         'patty_bar_web'::varchar as source_schema,
-        'product_added'::varchar as source_table,
+        'checkout_step_viewed'::varchar as source_table,
         'my-plan'::varchar as tracking_plan,
         context_library_name as library_name,
         context_library_version as library_version,
@@ -33,13 +28,10 @@ renamed as (
         timestamp as tstamp,
         anonymous_id,
         user_id,
-        box_size,
-        cart_id,
-        name,
-        price,
-        product_id,
-        quantity,
-        variant
+        checkout_id,
+        payment_method,
+        shipping_method,
+        step
 
     from source
 

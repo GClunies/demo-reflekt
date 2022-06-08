@@ -6,7 +6,7 @@
 # For more dbt configurations:
 #   - Refer to your dbt_project.yml and dbbt profiles.yml
 
-name: reflekt_patty_bar_web
+name: reflekt_my_app_web
 version: '0.1.0'
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]

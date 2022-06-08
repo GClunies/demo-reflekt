@@ -1,6 +1,7 @@
 version: 2
 sources:
-  - name: patty_bar_web
+  - name: my_app_web
+    schema: patty_bar_web
     database: raw
     description: Schema in Snowflake where data for the my-plan Segment
       source is stored.
