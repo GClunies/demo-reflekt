@@ -352,8 +352,8 @@ full = ["numpy", "pandas"]
 
 [[package]]
 name = "reflekt"
-version = "0.1.7"
-description = "Reflekt allows users to automagically model and document events in tracking plans pulled from their Analytics Governance tool."
+version = "0.1.8"
+description = "Reflekt enables anyone using dbt to automagically build a dbt package that models and documents the events in a tracking plan pulled from an Analytics Governance tool, ready for use in a dbt project."
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
@@ -911,8 +911,8 @@ redshift-connector = [
     {file = "redshift_connector-2.0.907-py3-none-any.whl", hash = "sha256:f0c75df717dd2eb7e9299dc3e83c9d505186490d4baac944e0bfd23414beca6b"},
 ]
 reflekt = [
-    {file = "reflekt-0.1.7-py3-none-any.whl", hash = "sha256:0c5a6d132b0511a3781b09edac73cdde6d6d38f77256d679746c185ce3496db2"},
-    {file = "reflekt-0.1.7.tar.gz", hash = "sha256:ccb598ca24d9523fdebb2fc9de327da8fc0cfea6d2c9570fe94772fdd99d2990"},
+    {file = "reflekt-0.1.8-py3-none-any.whl", hash = "sha256:1cefdb631ea8c9d516129e54d2d09f6e26b4f3cfab612898271a27dc7ef427ff"},
+    {file = "reflekt-0.1.8.tar.gz", hash = "sha256:36cf3292b73c1a4db1a338ab6783e398ec1e54729f1b676b96e39e5d46744ec3"},
 ]
 requests = [
     {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
