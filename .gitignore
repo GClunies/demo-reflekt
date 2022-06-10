@@ -135,7 +135,7 @@ dmypy.json
 reflekt_config.yml
 .reflekt/logs
 .reflekt/tmp
-.reflekt/avo/
+.reflekt/avo/*
 
 # Allow
 !.reflekt/avo/avo.json
