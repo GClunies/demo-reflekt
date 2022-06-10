@@ -132,6 +132,10 @@ dmypy.json
 .DS_Store
 
 # reflekt
-avo.json
 reflekt_config.yml
-.reflekt
+.reflekt/logs
+.reflekt/tmp
+.reflekt/avo/
+
+# Allow
+!.reflekt/avo/avo.json

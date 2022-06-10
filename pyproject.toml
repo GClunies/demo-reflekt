@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "patty-bar-reflekt"
+name = "reflekt-demo"
 version = "0.1.0"
 description = ""
 authors = ["Greg Clunies <greg.clunies@gmail.com>"]

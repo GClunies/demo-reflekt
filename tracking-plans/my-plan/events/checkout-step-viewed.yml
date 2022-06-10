@@ -23,5 +23,9 @@
         - overnight
     - name: step
       description: Number representing a step in the checkout process
-      type: number
+      type: string
       required: true
+      enum:
+        - shipping
+        - payment
+        - thank you
