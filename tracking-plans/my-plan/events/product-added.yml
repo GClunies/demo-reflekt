@@ -1,6 +1,6 @@
 - version: 1
   name: Product Added
-  description: Fired when a visitor adds a product to their shopping cart.
+  description: User adds a product to their shopping cart.
   metadata:
     code_owner: Maura
     product_owner: Greg

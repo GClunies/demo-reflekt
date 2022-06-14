@@ -1,6 +1,6 @@
 - version: 1
   name: Page Viewed
-  description: Fired when a user views a page on the website.
+  description: User viewed a page on the website.
   metadata: {}
   properties:
     - name: path

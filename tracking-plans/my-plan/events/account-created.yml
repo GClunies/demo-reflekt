@@ -1,6 +1,6 @@
 - version: 1
   name: Account Created
-  description: Fired when a user creates an account.
+  description: User created an account.
   metadata:
     code_owner: Maura
     product_owner: Greg

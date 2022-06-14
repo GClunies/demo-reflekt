@@ -4,7 +4,7 @@
   },
   "schema": {
     "id": "LWMN9gwSK0BYHH16lzRb",
-    "name": "patty-bar"
+    "name": "patty-pub"
   },
   "branch": {
     "id": "master",
@@ -16,9 +16,9 @@
       "id": "G7viupMvR",
       "name": "my-plan",
       "path": "my-plan.json",
-      "actionId": "wLwKDogEx2iYvkgV8sbs",
+      "actionId": "2bGPEZWINQU2kjDDfhU9",
       "branchId": "master",
-      "updatedAt": "2022-06-10T21:13:43.060Z"
+      "updatedAt": "2022-06-14T15:08:27.765Z"
     }
   ]
 }

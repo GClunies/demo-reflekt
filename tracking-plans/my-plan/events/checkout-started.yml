@@ -1,6 +1,6 @@
 - version: 1
-  name: Order Completed
-  description: Order successfully completed by the user.
+  name: Checkout Started
+  description: User initiated the order process (a transaction is created).
   metadata:
     code_owner: Maura
     product_owner: Greg
@@ -15,10 +15,6 @@
       required: true
       enum:
         - USD
-    - name: order_id
-      description: Order ID
-      type: string
-      required: true
     - name: products
       description: Products in the order
       type: array

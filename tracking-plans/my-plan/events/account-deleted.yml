@@ -1,6 +1,6 @@
 - version: 1
   name: Account Deleted
-  description: Fired when a user deletes their account.
+  description: User account deleted.
   metadata:
     code_owner: Maura
     product_owner: Greg
