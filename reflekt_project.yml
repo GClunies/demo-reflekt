@@ -84,3 +84,4 @@ dbt:
 
     docs:
       prefix: _reflekt_           # Prefix for docs in templated dbt package
+      in_folder: false            # true|false
