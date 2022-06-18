@@ -18,8 +18,8 @@ tracking_plans:
       # When templating dbt packages, Reflekt uses schemas in folder and file
       # names (e.g. reflekt_schema_name__event_name.sql)
       my-plan:
-        - schema: patty_bar_web
-          schema_alias: my_app_web
+        - schema: my_app_web
+          # schema_alias: my_app_web
 
   events:
     naming:
