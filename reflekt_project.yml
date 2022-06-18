@@ -1,7 +1,7 @@
 # Configurations are REQUIRED unless flagged by an '# OPTIONAL (optional_config:)' comment
 # Uncomment OPTIONAL configurations to use them
 
-name: reflekt_demo
+name: demo
 
 config_profile: reflekt_demo  # Profile defined in reflekt_config.yml
 
@@ -69,7 +69,7 @@ tracking_plans:
 dbt:
   templater:
     sources:
-      prefix: _src_reflekt_       # Prefix for templated dbt package sources
+      prefix: _src       # Prefix for templated dbt package sources
 
     models:
       prefix: reflekt_           # Prefix for models & docs in templated dbt package
