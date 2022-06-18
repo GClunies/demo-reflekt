@@ -1,7 +1,0 @@
-- version: 1
-  name: Account Created
-  description: User created an account.
-  metadata:
-    code_owner: Maura
-    product_owner: Greg
-  properties: []

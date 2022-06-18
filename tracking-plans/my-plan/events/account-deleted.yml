@@ -1,7 +1,0 @@
-- version: 1
-  name: Account Deleted
-  description: User account deleted.
-  metadata:
-    code_owner: Maura
-    product_owner: Greg
-  properties: []
