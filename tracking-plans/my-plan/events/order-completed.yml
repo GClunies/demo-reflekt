@@ -1,0 +1,38 @@
+- version: 1
+  name: Order Completed
+  description: Order successfully completed by the user.
+  metadata:
+    code_owner: Maura
+    product_owner: Greg
+  properties:
+    - name: checkout_id
+      description: Checkout transaction ID
+      type: string
+      required: true
+    - name: currency
+      description: Currency code associated with the transaction
+      type: string
+      required: true
+      enum:
+        - USD
+    - name: order_id
+      description: Order ID
+      type: string
+      required: true
+    - name: products
+      description: Products in the order
+      type: array
+      required: true
+    - name: revenue
+      description: Revenue ($) associated with the transaction (excluding
+        shipping and tax)
+      type: number
+      required: true
+    - name: shipping
+      description: Shipping cost associated with the transaction
+      type: number
+      required: true
+    - name: tax
+      description: Total tax associated with the transaction
+      type: number
+      required: true
