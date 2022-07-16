@@ -6,7 +6,7 @@ authors = ["Greg Clunies <greg.clunies@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-reflekt = "^0.1.0"
+reflekt = "^0.2.0"
 
 [tool.poetry.dev-dependencies]
 
