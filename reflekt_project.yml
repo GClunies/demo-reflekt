@@ -69,7 +69,7 @@ tracking_plans:
 dbt:
   templater:
     sources:
-      prefix: _src       # Prefix for templated dbt package sources
+      prefix: _src_       # Prefix for templated dbt package sources
 
     models:
       prefix: reflekt_           # Prefix for models & docs in templated dbt package
