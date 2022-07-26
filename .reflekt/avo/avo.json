@@ -4,7 +4,7 @@
   },
   "schema": {
     "id": "LWMN9gwSK0BYHH16lzRb",
-    "name": "patty-pub"
+    "name": "reflekt-demo"
   },
   "branch": {
     "id": "master",
@@ -16,9 +16,9 @@
       "id": "G7viupMvR",
       "name": "my-plan",
       "path": "my-plan.json",
-      "actionId": "TtbU0SaqaPdajXGrBhyu",
+      "actionId": "5H7nnTqQ5ziAeoACnp9G",
       "branchId": "master",
-      "updatedAt": "2022-07-16T06:49:02.302Z"
+      "updatedAt": "2022-07-26T04:28:28.391Z"
     }
   ]
 }
