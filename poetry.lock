@@ -351,7 +351,7 @@ full = ["numpy", "pandas"]
 
 [[package]]
 name = "reflekt"
-version = "0.2.4"
+version = "0.2.7"
 description = "Reflekt lets data teams: 1) Define tracking plans as code; 2) Automagically build a dbt package that models and documents the events in a tracking plan pulled from an Analytics Governance tool, ready for use in a dbt project."
 category = "main"
 optional = false
