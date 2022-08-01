@@ -23,3 +23,7 @@ sources:
         description: User viewed a page on the website.
       - name: product_added
         description: User adds a product to their shopping cart.
+      - name: identifies
+        description: A table with identify() calls.
+      - name: users
+        description: A table with the latest traits for users.

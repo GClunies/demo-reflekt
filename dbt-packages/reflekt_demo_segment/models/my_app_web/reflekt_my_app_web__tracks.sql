@@ -20,7 +20,7 @@ renamed as (
         id as event_id,
         'my_app_web'::varchar as source_schema,
         'tracks'::varchar as source_table,
-        'my-plan'::varchar as tracking_plan,
+        'my-segment-plan'::varchar as tracking_plan,
         event_text as event_name,
         'track'::varchar as call_type,
         context_library_name as library_name,

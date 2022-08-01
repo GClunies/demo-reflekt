@@ -20,7 +20,7 @@ renamed as (
         id as page_id,
         'my_app_web'::varchar as source_schema,
         'pages'::varchar as source_table,
-        'my-plan'::varchar as tracking_plan,
+        'my-segment-plan'::varchar as tracking_plan,
         name as page_name,
         'page'::varchar as call_type,
         context_library_name as library_name,

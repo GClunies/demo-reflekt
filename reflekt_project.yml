@@ -3,7 +3,8 @@
 
 name: demo
 
-config_profile: reflekt_demo  # Profile defined in reflekt_config.yml
+# config_profile: my_app_avo  # Profile defined in reflekt_config.yml
+config_profile: my_app_segment  # Profile defined in reflekt_config.yml
 
 # OPTIONAL (config_path:)
 # config_path: /absolute/path/to/reflekt_config.yml  # OPTIONAL
@@ -12,14 +13,14 @@ tracking_plans:
   # For each tracking plan in your Reflekt project, specify the warehouse and
   # schema(s) where Reflekt should search for corresponding event data.
   warehouse:
-    database:
-      my-plan: raw
-    schema:
-      # When templating dbt packages, Reflekt uses schemas in folder and file
-      # names (e.g. reflekt_schema_name__event_name.sql)
-      my-plan:
+    database:                           # Database configuration
+      my-avo-plan: raw                  # Specify database where event data is loaded
+      my-segment-plan: raw
+    schema:                             # Schema configuration
+      my-avo-plan:                          # Config events in tracking plan 'my-plan'
+        - schema: my_app_web            # Specify schema where event data is loaded
+      my-segment-plan:
         - schema: my_app_web
-          # schema_alias: my_app_web
 
   events:
     naming:

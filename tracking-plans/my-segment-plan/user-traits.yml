@@ -1,0 +1,10 @@
+traits:
+  - name: email
+    description: The user's email address.
+    type: string
+  - name: first_name
+    description: The user's first name.
+    type: string
+  - name: last_name
+    description: The user's last name.
+    type: string

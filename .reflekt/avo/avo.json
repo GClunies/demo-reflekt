@@ -1,6 +1,6 @@
 {
   "avo": {
-    "version": 2
+    "version": 3
   },
   "schema": {
     "id": "LWMN9gwSK0BYHH16lzRb",
@@ -14,11 +14,11 @@
   "sources": [
     {
       "id": "G7viupMvR",
-      "name": "my-plan",
-      "path": "my-plan.json",
-      "actionId": "5H7nnTqQ5ziAeoACnp9G",
+      "name": "my-avo-plan",
+      "path": "my-avo-plan.json",
+      "actionId": "RlyN5HLGHkAvGuEwhzbV",
       "branchId": "master",
-      "updatedAt": "2022-07-26T04:28:28.391Z"
+      "updatedAt": "2022-08-01T05:41:40.352Z"
     }
   ]
 }
