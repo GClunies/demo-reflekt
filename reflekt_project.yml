@@ -73,7 +73,7 @@ dbt:
       prefix: _src_       # Prefix for templated dbt package sources
 
     models:
-      prefix: reflekt_           # Prefix for models & docs in templated dbt package
+      prefix: stg_           # Prefix for models & docs in templated dbt package
       materialized: view  # One of view|incremental
       # OPTIONAL (incremental_logic:) [REQUIRED if 'materialized: incremental']
       # Specify the incremental logic to use when templating dbt models.
@@ -84,7 +84,7 @@ dbt:
       #   {%- endif %}
 
     docs:
-      prefix: _reflekt_           # Prefix for docs in templated dbt package
+      prefix: _stg_           # Prefix for docs in templated dbt package
       id_tests:                         # Include docs test on ID column (e.g. event_id)?
         not_null: true
         unique: true
