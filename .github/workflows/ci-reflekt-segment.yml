@@ -41,17 +41,17 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v23
-        with:
-          # Output unique changed directories instead of filenames.
-          # NOTE: Returns . for changed files located in the root of project.
-          dir_names: true
+        uses: tj-actions/changed-files@v26.1
+        # with:
+        #   # Output unique changed directories instead of filenames.
+        #   # NOTE: Returns . for changed files located in the root of project.
+        #   dir_names: true
 
-      # - name: List modified directories (for debugging)
-      #   run: |
-      #     for dir_name in ${{ steps.changed-files.outputs.all_changed_files }}; do
-      #       echo "$dir_name was modified"
-      #     done
+      - name: List modified directories (for debugging)
+        run: |
+          for dir_name in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$dir_name was modified"
+          done
 
       # - name: Test my-segment-plan (if modified)
       #   if: contains(steps.changed-files.outputs.all_changed_files, 'tracking-plans/my-segment-plan')
