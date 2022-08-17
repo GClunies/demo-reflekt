@@ -60,8 +60,8 @@ jobs:
           echo "$(date +"%T") Searching Reflekt project for tracking plans..."
           echo "$(date +"%T")"
           plans=$(ls -- tracking-plans | grep -v avo)  # Ignore my-avo-plan
-          pr_branch=$(git symbolic-ref --short HEAD)   # Set name of PR branch
-          main_branch="origin/main"                    # Set main branch
+          # pr_branch=$(git symbolic-ref --short HEAD)   # Set name of PR branch
+          # main_branch="origin/main"                    # Set main branch
           base_ref="${{ github.base_ref }}"
           head_ref="${{ github.head_ref }}"
 
