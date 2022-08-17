@@ -139,3 +139,6 @@ reflekt_config.yml
 
 # Allow
 !.reflekt/avo/avo.json
+
+# Other
+.vscode/settings.json
