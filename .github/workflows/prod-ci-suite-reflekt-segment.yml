@@ -1,4 +1,4 @@
-name: CI Suite Reflekt <> Segment
+name: Prod CI Suite - Reflekt <-> Segment
 on:
   pull_request:
     branches:
