@@ -1,11 +1,11 @@
-name: QA CI Suite - Reflekt <-> Segment
+name: 'Prod CI Suite: Reflekt <> Segment Protocols'
 on:
   push:
     branches:
       - main
 
 jobs:
-  test-and-sync-plan-changes-prod:
+  test-and-sync-plan-changes-qa:
     name: Test and Sync Tracking Plan Changes to Prod
     strategy:
       fail-fast: false
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Get entire history
+          fetch-depth: 0  # Get complete git history
 
       - name: Install Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
@@ -34,10 +34,6 @@ jobs:
           mkdir /home/runner/.reflekt
           echo "${{ secrets.CI_REFLEKT_CONFIG_YML }}" > /home/runner/.reflekt/reflekt_config.yml
 
-      - name: Sleep 3 seconds
-        run: |
-          sleep 3
-
       - name: CI Setup - set config_path in reflekt_project.yml
         uses: jacobtomlinson/gha-find-replace@2.0.0
         with:
@@ -45,11 +41,6 @@ jobs:
           replace: "config_path: /home/runner/.reflekt/reflekt_config.yml"
           include: "reflekt_project.yml"  # Only search this file
 
-      - name: Sleep 3 seconds
+      - name: Run CI suite Bash script
         run: |
-          sleep 3
-
-      - name: 'Prod CI Suite: Reflekt <-> Segment Protocols'
-        run: |
-          ./ci/reflekt_segment_prod.sh
-
+          ./ci/reflekt_segment_qa.sh "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
