@@ -43,4 +43,4 @@ jobs:
 
       - name: 'QA CI Suite: Reflekt <-> Segment Protocols'
         run: |
-          ./ci/reflekt_segment_qa.sh origin/main "${{ github.head_ref }}"
+          ./ci/reflekt_segment_qa.sh "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
