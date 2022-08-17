@@ -33,6 +33,7 @@ jobs:
         run: |
           mkdir /home/runner/.reflekt
           echo "${{ secrets.CI_REFLEKT_CONFIG_YML }}" > /home/runner/.reflekt/reflekt_config.yml
+          sleep 5
 
       - name: CI Setup - set config_path in reflekt_project.yml
         uses: jacobtomlinson/gha-find-replace@2.0.0
