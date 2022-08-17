@@ -31,11 +31,7 @@ for plan in ${plans}; do
     update_str=""
     update_events=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=AMR -- tracking-plans/${plan}/events)
     update_traits=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
-    pr_update_events=$(git diff HEAD^ --name-only --diff-filter=AMR -- tracking-plans/${plan}/events)
-    pr_update_traits=$(git diff HEAD^ --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
-    all_updates=("${update_events[@]}" "${update_traits[@]}" "${pr_update_events[@]}" "${pr_update_traits[@]}")
-    # Remove duplicates (ref: https://www.baeldung.com/linux/bash-unique-values-arrays)
-    updates=($(for update in "${all_updates[@]}"; do echo "${update}"; done | sort -u))
+    updates=("${update_events[@]}" "${update_traits[@]}")
 
     for update_file in ${updates}; do
         update_name=$(basename ${update_file} .yml)
@@ -60,11 +56,7 @@ for plan in ${plans}; do
     remove_str=""
     remove_events=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=D -- tracking-plans/${plan}/events)
     remove_traits=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=D -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
-    pr_remove_events=$(git diff HEAD^ --name-only --diff-filter=D -- tracking-plans/${plan}/events)
-    pr_remove_traits=$(git diff HEAD^ --name-only --diff-filter=D -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
-    all_removals=("${remove_events[@]}" "${remove_traits[@]}" "${pr_remove_events[@]}" "${pr_remove_traits[@]}")
-    # Remove duplicates (ref: https://www.baeldung.com/linux/bash-unique-values-arrays)
-    removals=($(for removal in "${all_removals[@]}"; do echo "${removal}"; done | sort -u))
+    removals=("${remove_events[@]}" "${remove_traits[@]}")
 
     for removal_file in ${removals}; do
         removal_name=$(basename ${removal_file} .yml)
