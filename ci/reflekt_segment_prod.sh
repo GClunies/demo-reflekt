@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "$(date +"%T") QA CI Suite: Reflekt <-> Segment Protocols"
 echo "$(date +"%T")"
 echo "$(date +"%T") Searching Reflekt project for tracking plans..."

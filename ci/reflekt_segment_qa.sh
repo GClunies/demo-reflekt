@@ -1,11 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+
+# Set Git refs based on provided arguments
+base_ref=$1
+head_ref=$2
+
 echo "$(date +"%T") QA CI Suite: Reflekt <-> Segment Protocols"
 echo "$(date +"%T")"
 echo "$(date +"%T") Searching Reflekt project for tracking plans..."
 echo "$(date +"%T")"
 plans=$(ls -- tracking-plans | grep -v avo)  # Ignore my-avo-plan
-pr_branch=$(git symbolic-ref --short HEAD)   # Set name of PR branch
-main_branch="origin/main"                    # Set main branch
 
 # Get a list of tracking plans
 if [ -z "${plans}" ]; then
@@ -26,8 +29,8 @@ for plan in ${plans}; do
 
     # Build out --update args for reflekt push
     update_str=""
-    update_events=$(git diff ${main_branch} ${pr_branch} --name-only --diff-filter=AMR -- tracking-plans/${plan}/events)
-    update_traits=$(git diff ${main_branch} ${pr_branch} --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
+    update_events=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=AMR -- tracking-plans/${plan}/events)
+    update_traits=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
     # updates=("${update_events[@]}" "${update_traits[@]}")
 
     # for update_file in ${updates}; do
@@ -59,8 +62,8 @@ for plan in ${plans}; do
 
     # Build out --remove args for reflekt push
     remove_str=""
-    remove_events=$(git diff ${main_branch} ${pr_branch} --name-only --diff-filter=D -- tracking-plans/${plan}/events)
-    remove_traits=$(git diff ${main_branch} ${pr_branch} --name-only --diff-filter=D -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
+    remove_events=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=D -- tracking-plans/${plan}/events)
+    remove_traits=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=D -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
     # removals=("${remove_events[@]}" "${remove_traits[@]}")
 
     # for removal_file in ${removals}; do
