@@ -5,8 +5,8 @@ on:
       - main
 
 jobs:
-  test-and-sync-2-qa:
-    name: Test proposed tracking plan changes
+  test-and-sync-plan-changes-qa:
+    name: Test and Sync Tracking Plan Changes to QA
     strategy:
       fail-fast: false
       matrix:
@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Get entire history
 
       - name: Install Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
@@ -39,27 +41,6 @@ jobs:
           replace: "config_path: /home/runner/.reflekt/reflekt_config.yml"
           include: "reflekt_project.yml"  # Only search this file
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v26.1
-        # with:
-        #   # Output unique changed directories instead of filenames.
-        #   # NOTE: Returns . for changed files located in the root of project.
-        #   dir_names: true
-
-      - name: List modified directories (for debugging)
+      - name: 'QA CI Suite: Reflekt <-> Segment Protocols'
         run: |
-          for dir_name in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$dir_name was modified"
-          done
-
-      # - name: Test my-segment-plan (if modified)
-      #   if: contains(steps.changed-files.outputs.all_changed_files, 'tracking-plans/my-segment-plan')
-      #   run: |
-      #     reflekt test --name my-segment-plan
-
-      # reflekt push runs reflekt test in the background, so no need to run test separately
-      # - name: Sync my-segment-plan to QA (if passed test)
-      #   if: contains(steps.changed-files.outputs.all_changed_files, 'tracking-plans/my-segment-plan')
-      #   run: |
-      #     reflekt push --name my-segment-plan --target my-segment-plan-qa  # TODO - add --target arg to reflekt push
+          ./ci_reflekt_segment_qa.sh
