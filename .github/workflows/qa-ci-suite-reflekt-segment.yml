@@ -34,10 +34,6 @@ jobs:
           mkdir /home/runner/.reflekt
           echo "${{ secrets.CI_REFLEKT_CONFIG_YML }}" > /home/runner/.reflekt/reflekt_config.yml
 
-      - name: Sleep 3 seconds
-        run: |
-          sleep 3
-
       - name: CI Setup - set config_path in reflekt_project.yml
         uses: jacobtomlinson/gha-find-replace@2.0.0
         with:
@@ -45,10 +41,6 @@ jobs:
           replace: "config_path: /home/runner/.reflekt/reflekt_config.yml"
           include: "reflekt_project.yml"  # Only search this file
 
-      - name: Sleep 3 seconds
-        run: |
-          sleep 3
-
       - name: 'QA CI Suite: Reflekt <-> Segment Protocols'
         run: |
-          ./ci_reflekt_segment_qa.sh origin/main "${{ github.head_ref }}"
+          ./ci/reflekt_segment_qa.sh origin/main "${{ github.head_ref }}"
