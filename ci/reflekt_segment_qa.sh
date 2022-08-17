@@ -40,16 +40,6 @@ for plan in ${plans}; do
 
     echo "$(date +"%T") Searching for new/updated events or traits..."
 
-    # for update_file in ${update_events}; do
-    #     update_name=$(basename ${update_file} .yml)
-    #     update_str="$update_str-u ${update_name} "
-    # done;
-
-    # for update_file in ${update_traits}; do
-    #     update_name=$(basename ${update_file} .yml)
-    #     update_str="$update_str-u ${update_name} "
-    # done;
-
     # Run reflekt push with --update args
     if [ "${update_str}" != "" ]; then
         echo "$(date +"%T") Found new/updated events or traits. Running Reflekt command:"
@@ -74,16 +64,6 @@ for plan in ${plans}; do
     done;
 
     echo "$(date +"%T") Checking for removed events or traits..."
-
-    # for removal_file in ${remove_events}; do
-    #     removal_name=$(basename ${removal_file} .yml)
-    #     remove_str="$remove_str-r ${removal_name} "
-    # done;
-
-    # for removal_file in ${remove_traits}; do
-    #     removal_name=$(basename ${removal_file} .yml)
-    #     remove_str="$remove_str-r ${removal_name} "
-    # done;
 
     # Run reflekt push with --remove args
     if [ "${remove_str}" != "" ]; then
