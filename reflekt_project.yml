@@ -3,8 +3,8 @@
 
 name: demo
 
-config_profile: my_app_avo  # Profile defined in reflekt_config.yml
-# config_profile: my_app_segment  # Profile defined in reflekt_config.yml
+config_profile: my_app_segment  # Profile defined in reflekt_config.yml
+# config_profile: my_app_avo  # Profile defined in reflekt_config.yml
 
 # OPTIONAL (config_path:)
 # config_path: /absolute/path/to/reflekt_config.yml  # OPTIONAL
