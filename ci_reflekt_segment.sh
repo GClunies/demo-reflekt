@@ -34,6 +34,7 @@ for plan in ${plans}; do
         update_str="$update_str-u ${update_name} "
     done;
 
+    # Run reflekt push with --update args
     if [ "${update_str}" != "" ]; then
         echo "$(date +"%T") Additions/updates detected. Running Reflekt command:\n$(date +"%T")     reflekt push -n ${plan} ${update_str} -t ${plan}-qa"
         reflekt push -n ${plan} ${update_str} -t ${plan}-qa
@@ -54,6 +55,7 @@ for plan in ${plans}; do
         remove_str="$remove_str-r ${removal_name} "
     done;
 
+    # Run reflekt push with --remove args
     if [ "${remove_str}" != "" ]; then
         echo "$(date +"%T") Removals detected. Running Reflekt command:\n$(date +"%T")     reflekt push -n ${plan} ${remove_str} -t ${plan}-qa"
         reflekt push -n ${plan} ${remove_str} -t ${plan}-qa
