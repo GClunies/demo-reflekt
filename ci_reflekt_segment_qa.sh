@@ -24,8 +24,8 @@ for plan in ${plans}; do
 
     # Build out --update args for reflekt push
     update_str=""
-    update_events=$(git diff main --name-only --diff-filter=AMR -- tracking-plans/${plan}/events)
-    update_traits=$(git diff main --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
+    update_events=$(git diff origin/main HEAD --name-only --diff-filter=AMR -- tracking-plans/${plan}/events)
+    update_traits=$(git diff origin/main HEAD --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
     # updates=("${update_events[@]}" "${update_traits[@]}")
 
     # for update_file in ${updates}; do
