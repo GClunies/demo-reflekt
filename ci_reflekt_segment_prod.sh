@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "$(date +"%T") CI Suite: Reflekt <-> Segment Protocols PROD"
+echo "$(date +"%T") Prod CI Suite: Reflekt <-> Segment Protocols"
 echo "$(date +"%T")"
 echo "$(date +"%T") Searching tracking plans"
 plans=$(ls -- tracking-plans)
