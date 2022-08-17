@@ -1,12 +1,13 @@
 #!/bin/sh
 echo "$(date +"%T") QA CI Suite: Reflekt <-> Segment Protocols"
 echo "$(date +"%T")"
-echo "$(date +"%T") Searching tracking plans"
-plans=$(ls -- tracking-plans)
+echo "$(date +"%T") Searching Reflekt project for tracking plans..."
+echo "$(date +"%T")"
+plans=$(ls -- tracking-plans | grep -v avo)  # Ignore my-avo-plan
 
 # Get a list of tracking plans
 if [ -z "${plans}" ]; then
-    echo "No tracking plans found in 'tracking-plans/'!"
+    echo "$(date +"%T")     No tracking plans found in 'tracking-plans/'!"
     exit 1  # Exit if no tracking plans found
 fi
 
@@ -19,7 +20,7 @@ done;
 # Loop the tracking plans
 for plan in ${plans}; do
     echo "$(date +"%T")"
-    echo "$(date +"%T") Checking tracking plan '${plan}' for changes..."
+    echo "$(date +"%T") Searching tracking plan '${plan}' for changes..."
 
     # Build out --update args for reflekt push
     update_str=""
@@ -27,7 +28,7 @@ for plan in ${plans}; do
     update_traits=$(git diff origin --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
     updates=("${update_events[@]}" "${update_traits[@]}")
 
-    echo "$(date +"%T") Checking for new/updated events or traits..."
+    echo "$(date +"%T") Searching for new/updated events or traits..."
 
     for update_file in ${updates}; do
         update_name=$(basename ${update_file} .yml)
@@ -36,10 +37,12 @@ for plan in ${plans}; do
 
     # Run reflekt push with --update args
     if [ "${update_str}" != "" ]; then
-        echo "$(date +"%T") Additions/updates detected. Running Reflekt command:\n$(date +"%T")     reflekt push -n ${plan} ${update_str} -t ${plan}-qa"
+        echo "$(date +"%T") Found new/updated events or traits. Running Reflekt command:\n$(date +"%T")\n$(date +"%T")     reflekt push -n ${plan} ${update_str}-t ${plan}-qa"
+        echo "$(date +"%T")"
         reflekt push -n ${plan} ${update_str} -t ${plan}-qa
+        echo "$(date +"%T")"
     else
-        echo "$(date +"%T")     No new/updated events or traits detected"
+        echo "$(date +"%T")     No new/updated events or traits found."
     fi
 
     # Build out --remove args for reflekt push
@@ -57,10 +60,12 @@ for plan in ${plans}; do
 
     # Run reflekt push with --remove args
     if [ "${remove_str}" != "" ]; then
-        echo "$(date +"%T") Removals detected. Running Reflekt command:\n$(date +"%T")     reflekt push -n ${plan} ${remove_str} -t ${plan}-qa"
+        echo "$(date +"%T") Found removed events or traits.Running Reflekt command:\n$(date +"%T")\n$(date +"%T")     reflekt push -n ${plan} ${remove_str}-t ${plan}-qa"
+        echo "$(date +"%T")"
         reflekt push -n ${plan} ${remove_str} -t ${plan}-qa
+        echo "$(date +"%T")"
     else
-        echo "$(date +"%T")     No removed events or traits detected"
+        echo "$(date +"%T")     No removed events or traits found."
     fi
 
 done;
