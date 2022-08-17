@@ -86,5 +86,3 @@ for plan in ${plans}; do
     fi
 
 done;
-
-index e7e9434..0296a6f 100644
