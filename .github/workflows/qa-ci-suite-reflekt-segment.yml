@@ -1,4 +1,4 @@
-name: QA CI Suite - Reflekt <-> Segment
+name: 'QA CI Suite: Reflekt <> Segment Protocols'
 on:
   pull_request:
     branches:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Get entire history
+          fetch-depth: 0  # Get complete git history
 
       - name: Install Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
@@ -41,6 +41,6 @@ jobs:
           replace: "config_path: /home/runner/.reflekt/reflekt_config.yml"
           include: "reflekt_project.yml"  # Only search this file
 
-      - name: 'QA CI Suite: Reflekt <-> Segment Protocols'
+      - name: Run CI suite Bash script
         run: |
           ./ci/reflekt_segment_qa.sh "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"

@@ -31,28 +31,30 @@ for plan in ${plans}; do
     update_str=""
     update_events=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=AMR -- tracking-plans/${plan}/events)
     update_traits=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=AMR -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
-    # updates=("${update_events[@]}" "${update_traits[@]}")
+    updates=("${update_events[@]}" "${update_traits[@]}")
 
-    # for update_file in ${updates}; do
+    for update_file in ${updates}; do
+        update_name=$(basename ${update_file} .yml)
+        update_str="$update_str-u ${update_name} "
+    done;
+
+    echo "$(date +"%T") Searching for new/updated events or traits..."
+
+    # for update_file in ${update_events}; do
     #     update_name=$(basename ${update_file} .yml)
     #     update_str="$update_str-u ${update_name} "
     # done;
 
-    echo "$(date +"%T") Searching for new/updated events or traits..."
-
-    for update_file in ${update_events}; do
-        update_name=$(basename ${update_file} .yml)
-        update_str="$update_str-u ${update_name} "
-    done;
-
-    for update_file in ${update_traits}; do
-        update_name=$(basename ${update_file} .yml)
-        update_str="$update_str-u ${update_name} "
-    done;
+    # for update_file in ${update_traits}; do
+    #     update_name=$(basename ${update_file} .yml)
+    #     update_str="$update_str-u ${update_name} "
+    # done;
 
     # Run reflekt push with --update args
     if [ "${update_str}" != "" ]; then
-        echo "$(date +"%T") Found new/updated events or traits. Running Reflekt command:\n$(date +"%T")\n$(date +"%T")     reflekt push -n ${plan} ${update_str}-t ${plan}-qa"
+        echo "$(date +"%T") Found new/updated events or traits. Running Reflekt command:"
+        echo "$(date +"%T")"
+        echo "$(date +"%T")     reflekt push -n ${plan} ${update_str}-t ${plan}-qa"
         echo "$(date +"%T")"
         reflekt push -n ${plan} ${update_str} -t ${plan}-qa
         echo "$(date +"%T")"
@@ -64,28 +66,30 @@ for plan in ${plans}; do
     remove_str=""
     remove_events=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=D -- tracking-plans/${plan}/events)
     remove_traits=$(git diff ${base_ref} ${head_ref} --name-only --diff-filter=D -- tracking-plans/${plan}/user-traits.yml tracking-plans/${plan}/group-traits.yml)
-    # removals=("${remove_events[@]}" "${remove_traits[@]}")
+    removals=("${remove_events[@]}" "${remove_traits[@]}")
 
-    # for removal_file in ${removals}; do
+    for removal_file in ${removals}; do
+        removal_name=$(basename ${removal_file} .yml)
+        remove_str="$remove_str-r ${removal_name} "
+    done;
+
+    echo "$(date +"%T") Checking for removed events or traits..."
+
+    # for removal_file in ${remove_events}; do
     #     removal_name=$(basename ${removal_file} .yml)
     #     remove_str="$remove_str-r ${removal_name} "
     # done;
 
-    echo "$(date +"%T") Checking for removed events or traits..."
-
-    for removal_file in ${remove_events}; do
-        removal_name=$(basename ${removal_file} .yml)
-        remove_str="$remove_str-r ${removal_name} "
-    done;
-
-    for removal_file in ${remove_traits}; do
-        removal_name=$(basename ${removal_file} .yml)
-        remove_str="$remove_str-r ${removal_name} "
-    done;
+    # for removal_file in ${remove_traits}; do
+    #     removal_name=$(basename ${removal_file} .yml)
+    #     remove_str="$remove_str-r ${removal_name} "
+    # done;
 
     # Run reflekt push with --remove args
     if [ "${remove_str}" != "" ]; then
-        echo "$(date +"%T") Found removed events or traits.Running Reflekt command:\n$(date +"%T")\n$(date +"%T")     reflekt push -n ${plan} ${remove_str}-t ${plan}-qa"
+        echo "$(date +"%T") Found removed events or traits. Running Reflekt command:"
+        echo "$(date +"%T")"
+        echo "$(date +"%T")     reflekt push -n ${plan} ${remove_str}-t ${plan}-qa"
         echo "$(date +"%T")"
         reflekt push -n ${plan} ${remove_str} -t ${plan}-qa
         echo "$(date +"%T")"
