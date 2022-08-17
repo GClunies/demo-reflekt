@@ -1,7 +1,9 @@
 - version: 1
   name: Checkout Step Completed
   description: Checkout step completed by the user.
-  metadata: {}
+  metadata:
+    code_owner: Maura
+    product_owner: Greg
   properties:
     - name: checkout_id
       description: Checkout transaction ID
