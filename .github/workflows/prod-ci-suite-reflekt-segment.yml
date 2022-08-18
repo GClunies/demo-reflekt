@@ -1,0 +1,49 @@
+name: 'Prod CI Suite: Reflekt <> Segment Protocols'
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - "closed"
+
+jobs:
+  test-and-sync-plan-changes-prod:
+    if: github.event.pull_request.merged == true
+    name: Test and Sync Tracking Plan Changes to Prod
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['ubuntu-latest']
+        python-version: ['3.9']
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Get complete git history
+
+      - name: Install Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python: ${{ matrix.python-version }}
+
+      - name: Install Reflekt
+        run: |
+          pip install reflekt
+
+      - name: CI Setup - make reflekt_config.yml for CI suite
+        run: |
+          mkdir /home/runner/.reflekt
+          echo "${{ secrets.CI_REFLEKT_CONFIG_YML }}" > /home/runner/.reflekt/reflekt_config.yml
+
+      - name: CI Setup - set config_path in reflekt_project.yml
+        uses: jacobtomlinson/gha-find-replace@2.0.0
+        with:
+          find: "# config_path: /absolute/path/to/reflekt_config.yml"
+          replace: "config_path: /home/runner/.reflekt/reflekt_config.yml"
+          include: "reflekt_project.yml"  # Only search this file
+
+      - name: Run CI suite Bash script
+        run: |
+          ./ci/reflekt_segment_qa.sh "$GITHUB_BASE_REF" "$GITHUB_REF"

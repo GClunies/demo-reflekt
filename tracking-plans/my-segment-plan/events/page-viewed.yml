@@ -1,7 +1,9 @@
 - version: 1
   name: Page Viewed
   description: User viewed a page on the website.
-  metadata: {}
+  metadata:
+    code_owner: Maura
+    product_owner: Greg
   properties:
     - name: path
       description: Path portion of the page’s URL. Equivalent to canonical

@@ -131,6 +131,9 @@ dmypy.json
 # macOS stuff
 .DS_Store
 
+# vscode
+.vscode
+
 # reflekt
 reflekt_config.yml
 .reflekt/logs
