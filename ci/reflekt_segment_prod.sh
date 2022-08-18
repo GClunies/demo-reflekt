@@ -50,6 +50,7 @@ for plan in ${plans}; do
         echo "$(date +"%T")"
     else
         echo "$(date +"%T")     No new/updated events or traits found."
+        echo "$(date +"%T")"
     fi
 
     # Build out --remove args for reflekt push
@@ -75,6 +76,7 @@ for plan in ${plans}; do
         echo "$(date +"%T")"
     else
         echo "$(date +"%T")     No removed events or traits found."
+        echo "$(date +"%T")"
     fi
 
 done;
