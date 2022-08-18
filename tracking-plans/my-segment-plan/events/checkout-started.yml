@@ -1,6 +1,6 @@
 - version: 1
   name: Checkout Started
-  description: User initiated the order process (a transaction is created).
+  description: User initiated the order process (a transaction is created). TEST
   metadata:
     code_owner: Maura
     product_owner: Greg
