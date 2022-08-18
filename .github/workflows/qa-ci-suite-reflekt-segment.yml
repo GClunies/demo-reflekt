@@ -39,7 +39,7 @@ jobs:
         with:
           find: "# config_path: /absolute/path/to/reflekt_config.yml"
           replace: "config_path: /home/runner/.reflekt/reflekt_config.yml"
-          include: "reflekt_project.yml"  # Only search this file
+          include: "reflekt_project.yml"  # Only search reflekt_project.yml
 
       - name: Run CI suite Bash script
         run: |
