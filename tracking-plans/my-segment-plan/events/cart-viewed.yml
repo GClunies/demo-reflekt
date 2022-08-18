@@ -1,6 +1,6 @@
 - version: 1
   name: Cart Viewed
-  description: User viewed their shopping cart. TEST
+  description: User viewed their shopping cart.
   metadata:
     code_owner: Maura
     product_owner: Greg
