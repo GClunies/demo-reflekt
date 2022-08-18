@@ -46,4 +46,4 @@ jobs:
 
       - name: Run CI suite Bash script
         run: |
-          ./ci/reflekt_segment_qa.sh "$GITHUB_BASE_REF" "$GITHUB_REF"
+          ./ci/reflekt_segment_qa.sh $GITHUB_BASE_REF $GITHUB_REF
