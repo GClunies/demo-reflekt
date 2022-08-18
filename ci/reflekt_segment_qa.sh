@@ -22,7 +22,7 @@ for plan in ${plans}; do
     echo "$(date +"%T")     ${plan}"
 done;
 
-# Loop the tracking plans
+# Loop through tracking plans
 for plan in ${plans}; do
     echo "$(date +"%T")"
     echo "$(date +"%T") Searching tracking plan '${plan}' for changes..."
