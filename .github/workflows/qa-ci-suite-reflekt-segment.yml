@@ -41,6 +41,6 @@ jobs:
           replace: "config_path: /home/runner/.reflekt/reflekt_config.yml"
           include: "reflekt_project.yml"  # Only search reflekt_project.yml
 
-      - name: Run CI suite Bash script
+      - name: CI Suite - Run Bash script
         run: |
           ./ci/reflekt_segment_qa.sh "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
