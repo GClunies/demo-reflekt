@@ -7,6 +7,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "backoff"
+version = "2.1.2"
+description = "Function decoration for backoff and retry"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[[package]]
 name = "beautifulsoup4"
 version = "4.11.1"
 description = "Screen-scraping library"
@@ -79,6 +87,14 @@ python-versions = "*"
 
 [package.dependencies]
 pycparser = "*"
+
+[[package]]
+name = "chardet"
+version = "4.0.0"
+description = "Universal encoding detector for Python 2 and 3"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "charset-normalizer"
@@ -224,6 +240,14 @@ htmlsoup = ["beautifulsoup4"]
 source = ["Cython (>=0.29.7)"]
 
 [[package]]
+name = "monotonic"
+version = "1.6"
+description = "An implementation of time.monotonic() for Python 2 & < 3.3"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "oscrypto"
 version = "1.3.0"
 description = "TLS (SSL) sockets, key generation, encryption, decryption, signing, verification and KDFs using the OS crypto libraries. Does not require a compiler, and relies on the OS for patching. Works on Windows, OS X and Linux/BSD."
@@ -351,7 +375,7 @@ full = ["numpy", "pandas"]
 
 [[package]]
 name = "reflekt"
-version = "0.2.13"
+version = "0.2.15"
 description = "Reflekt lets data teams: 1) Define tracking plans as code; 2) Template dbt packages that model and document tracking plan events, ready for use in dbt."
 category = "main"
 optional = false
@@ -359,6 +383,7 @@ python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 Cerberus = ">=1.3.4,<2.0.0"
+chardet = "<5.0.0"
 click = ">=8.1.2,<9.0.0"
 funcy = ">=1.17,<2.0"
 GitPython = ">=3.1.27,<4.0.0"
@@ -367,6 +392,7 @@ loguru = ">=0.6.0,<0.7.0"
 PyYAML = ">=6.0,<7.0"
 redshift-connector = ">=2.0.905,<3.0.0"
 requests = ">=2.27.1,<3.0.0"
+segment-analytics-python = ">=2.2.1,<3.0.0"
 snowflake-sqlalchemy = ">=1.3.3,<2.0.0"
 sqlalchemy-redshift = ">=0.8.9,<0.9.0"
 
@@ -412,6 +438,23 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 asn1crypto = ">=1.4.0"
+
+[[package]]
+name = "segment-analytics-python"
+version = "2.2.1"
+description = "The hassle-free way to integrate analytics into any python application."
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+
+[package.dependencies]
+backoff = ">=2.1,<3.0"
+monotonic = ">=1.5,<2.0"
+python-dateutil = ">=2.2,<3.0"
+requests = ">=2.7,<3.0"
+
+[package.extras]
+test = ["mock (==2.0.0)", "pylint (==2.8.0)", "flake8 (==3.7.9)"]
 
 [[package]]
 name = "six"
@@ -565,12 +608,14 @@ content-hash = "6189e98f4c124fe61691e736f3dd5b682b05167ec5eabd225bfbb16154300bf1
 
 [metadata.files]
 asn1crypto = []
+backoff = []
 beautifulsoup4 = []
 boto3 = []
 botocore = []
 cerberus = []
 certifi = []
 cffi = []
+chardet = []
 charset-normalizer = []
 click = []
 colorama = []
@@ -584,6 +629,7 @@ inflection = []
 jmespath = []
 loguru = []
 lxml = []
+monotonic = []
 oscrypto = []
 packaging = []
 pycparser = []
@@ -599,6 +645,7 @@ reflekt = []
 requests = []
 s3transfer = []
 scramp = []
+segment-analytics-python = []
 six = []
 smmap = []
 snowflake-connector-python = []
