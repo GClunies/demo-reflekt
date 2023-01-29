@@ -1,4 +1,4 @@
-# reflekt-demo
+# demo-reflekt
 A demo [Reflekt](https://github.com/GClunies/reflekt) project with examples how to:
 1. Define schemas for event data collection.
 2. Setup a CI/CD suite that can:
