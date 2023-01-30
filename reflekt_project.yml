@@ -1,6 +1,6 @@
 version: 1.0
 
-name: demo-reflekt
+name: demo_reflekt
 vendor: com.reflekt.demo
 default_profile: demo_reflekt
 profiles_path: /Users/gclunies/.reflekt/reflekt_profiles.yml
