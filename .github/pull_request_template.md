@@ -1,14 +1,15 @@
 <!---
-Provide a short summary in the Title above. Examples of good PR titles:
+Provide a short summary in the Title above. Example PR titles:
 * "Ticket-number: add order-completed event"
 * "Ticket-number: remove 'page_type' property from page-viewed event"
-* "Ticket-number: upgrade reflekt version 0.2.11"
+* "Ticket-number: upgrade reflekt version 0.3.0"
 -->
 
 ## Description
 <!---
 Describe the changes proposed in the PR and why they are needed. Include a link to the issue or ticket for this work.
 -->
+
 
 ## To-do before merge:
 <!---
