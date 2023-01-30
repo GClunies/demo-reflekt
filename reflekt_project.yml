@@ -1,91 +1,39 @@
-# Configurations are REQUIRED unless flagged by an '# OPTIONAL (optional_config:)' comment
-# Uncomment OPTIONAL configurations to use them
+version: 1.0
 
-name: demo
+name: demo-reflekt
+vendor: com.reflekt.demo
+default_profile: demo_reflekt
+profiles_path: /Users/gclunies/.reflekt/reflekt_profiles.yml
 
-config_profile: my_app_segment  # Profile defined in reflekt_config.yml
-# config_profile: my_app_avo  # Profile defined in reflekt_config.yml
-
-# OPTIONAL (config_path:)
-# config_path: /absolute/path/to/reflekt_config.yml  # OPTIONAL
-
-tracking_plans:
-  # For each tracking plan in your Reflekt project, specify the warehouse and
-  # schema(s) where Reflekt should search for corresponding event data.
-  warehouse:
-    database:                           # Database configuration
-      my-avo-plan: raw                  # Specify database where event data is loaded
-      my-segment-plan: raw
-    schema:                             # Schema configuration
-      my-avo-plan:                          # Config events in tracking plan 'my-plan'
-        - schema: my_app_web            # Specify schema where event data is loaded
-      my-segment-plan:
-        - schema: my_app_web
-
-  events:
-    naming:
-      case: title           # One of title|snake|camel
-      allow_numbers: false  # true|false
-      reserved: []          # Reserved event names (casing matters)
-
-    # OPTIONAL (expected_metadata:)
-    # Define a schema for expected event metadata. Tested when running:
-    #     reflekt test --name <plan-name>
-    expected_metadata:
-      product_owner:
-        type: string
-        required: true
-        allowed:
-          - Maura
-          - Greg
-      code_owner:
-        required: true
-        type: string
-        allowed:
-          - Maura
-          - Greg
-      stakeholders:
-        type: string
-        allowed:
-          - Product
-          - Engineering
-          - Data
-
-  properties:
-    naming:
-      case: snake           # One of title|snake|camel
-      allow_numbers: true  # true|false
-      reserved: []          # Reserved property names (casing matters)
-
-    data_types: # Specify allowed data types. Available types listed below
+schemas:
+  conventions:
+    event:
+      casing: title
+      capitalize_camel: true
+      numbers: false
+      reserved: []
+    property:
+      casing: snake
+      capitalize_camel: true
+      numbers: false
+      reserved: []
+    data_types:
       - string
       - integer
-      - boolean
       - number
+      - boolean
       - object
       - array
       - any
-      - 'null'  # Specify null type in quotes
+      - 'null'
 
-dbt:
-  templater:
+artifacts:
+  dbt:
     sources:
-      prefix: _src_       # Prefix for templated dbt package sources
-
+      prefix: __src_
     models:
-      prefix: stg_           # Prefix for models & docs in templated dbt package
-      materialized: view  # One of view|incremental
-      # OPTIONAL (incremental_logic:) [REQUIRED if 'materialized: incremental']
-      # Specify the incremental logic to use when templating dbt models.
-      # Must include the {%- if is_incremental() %} ... {%- endif %} block
-      # incremental_logic: |
-      #   {%- if is_incremental() %}
-      #   where received_at >= ( select max(received_at_tstamp)::date from {{ this }} )
-      #   {%- endif %}
-
+      prefix: stg_
     docs:
-      prefix: _stg_           # Prefix for docs in templated dbt package
-      id_tests:                         # Include docs test on ID column (e.g. event_id)?
-        not_null: true
-        unique: true
-      in_folder: false            # true|false
+      prefix: _stg_
+      in_folder: false
+      tests: {}
