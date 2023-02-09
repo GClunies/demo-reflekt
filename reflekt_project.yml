@@ -33,6 +33,8 @@ artifacts:
       prefix: __src_
     models:
       prefix: stg_
+      filter:
+        where received_at < current_date
     docs:
       prefix: _stg_
       in_folder: false

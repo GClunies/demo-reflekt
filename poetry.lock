@@ -861,14 +861,14 @@ full = ["numpy", "pandas"]
 
 [[package]]
 name = "reflekt"
-version = "0.3.0"
+version = "0.3.1"
 description = "A CLI tool to define event schemas, lint them, interact with schema registries, and build corresponding data artifacts (e.g., dbt package)."
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "reflekt-0.3.0-py3-none-any.whl", hash = "sha256:7045cc76c7428f19e90a948791c27c6d4755301e5e5e2259771bbd7df293c011"},
-    {file = "reflekt-0.3.0.tar.gz", hash = "sha256:92033eb3088f3e430b5ca2bf68148a9ce4d3001895f6d724971889d35234281e"},
+    {file = "reflekt-0.3.1-py3-none-any.whl", hash = "sha256:8e9258f7ed540b2068036f104d68293918f0ce013e201995413288e0f4b2ac02"},
+    {file = "reflekt-0.3.1.tar.gz", hash = "sha256:838346ae60ac4fefad85d4f14ad1a65bc37e3bf5a91b931b093f09588bf44a41"},
 ]
 
 [package.dependencies]
