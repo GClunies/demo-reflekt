@@ -38,4 +38,6 @@ artifacts:
     docs:
       prefix: _stg_
       in_folder: false
-      tests: {}
+      tests: {
+        "id": ["unique", "not_null"],
+      }
