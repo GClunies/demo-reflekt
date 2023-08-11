@@ -6,7 +6,8 @@
         "vendor": "com.reflekt.demo",
         "name": "Product Added",
         "format": "jsonschema",
-        "version": "1-0"
+        "version": "1-0",
+        "metadata": {}
     },
     "metadata": {
         "code_owner": "Maura",
