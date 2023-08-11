@@ -857,13 +857,13 @@ rpds-py = ">=0.7.0"
 
 [[package]]
 name = "reflekt"
-version = "0.3.23"
+version = "0.3.24"
 description = "A CLI tool to define event schemas, lint them to enforce conventions, publish to a schema registry, and build corresponding data artifacts (e.g., dbt sources/models/docs)."
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "reflekt-0.3.23-py3-none-any.whl", hash = "sha256:f5992407f6873c4dd4e9f01f8e4c76d24140910fbccef4278f21c277b1f72834"},
-    {file = "reflekt-0.3.23.tar.gz", hash = "sha256:526862353cdd210929f48a81b7fdc6d02627cbfc21c8e40fb3997b8f656a5a2d"},
+    {file = "reflekt-0.3.24-py3-none-any.whl", hash = "sha256:6aab785c898ec0baee2f6d7d93180227d826b132b98a4af5986a217c96a233b6"},
+    {file = "reflekt-0.3.24.tar.gz", hash = "sha256:4cafc36de8139fcaefb8acd5d5cf459dfcbcc8d823deb1f11e2761924df7fc97"},
 ]
 
 [package.dependencies]
@@ -1347,4 +1347,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "74dbbe386fdd8cca4dc1814ecb291f321cd911fac94ab5c53b395c32c898979b"
+content-hash = "1d5dbd86c7f3c6e268580f60bed1be40b37f1e5cbde85c4ed1bf63499a29a313"

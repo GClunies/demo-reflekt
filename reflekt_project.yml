@@ -8,9 +8,7 @@ name: reflekt_demo               # Project name
 vendor: com.reflekt-ci           # Default vendor for schemas in reflekt project
 
 default_profile: demo_reflekt     # Default profile to use from reflekt_profiles.yml
-# profiles_path: /Users/gclunies/.reflekt/reflekt_profiles.yml  # Path to reflekt_profiles.yml
-profiles_path: /Users/gclunies2-mba/.reflekt/reflekt_profiles.yml  # Path to reflekt_profiles.yml
-
+profiles_path: ~/.reflekt/reflekt_profiles.yml  # Path to reflekt_profiles.yml
 
 
 # SCHEMAS CONFIG ----------------------------------------------------------------------
