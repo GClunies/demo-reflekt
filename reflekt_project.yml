@@ -1,43 +1,44 @@
+# This repo stores the core Reflekt codebase, but is also a Reflekt project itself.
+# Explore the schemas/ and artifacts/ directories to see how we use Reflekt internally.
+
+# GENERAL CONFIG ----------------------------------------------------------------------
 version: 1.0
 
-name: demo_reflekt
-vendor: com.reflekt.demo
-default_profile: demo_reflekt
-profiles_path: /Users/gclunies/.reflekt/reflekt_profiles.yml
+name: reflekt_demo               # Project name
+vendor: com.reflekt-ci           # Default vendor for schemas in reflekt project
 
-schemas:
+default_profile: demo_reflekt     # Default profile to use from reflekt_profiles.yml
+# profiles_path: /Users/gclunies/.reflekt/reflekt_profiles.yml  # Path to reflekt_profiles.yml
+profiles_path: /Users/gclunies2-mba/.reflekt/reflekt_profiles.yml  # Path to reflekt_profiles.yml
+
+
+
+# SCHEMAS CONFIG ----------------------------------------------------------------------
+schemas:                        # Define schema conventions
   conventions:
     event:
-      casing: title
-      capitalize_camel: true
-      numbers: false
-      reserved: []
+      casing: title             # title | snake | camel | pascal | any
+      numbers: false            # Allow numbers in event names
+      reserved: []              # Reserved event names
     property:
-      casing: snake
-      capitalize_camel: true
-      numbers: false
-      reserved: []
-    data_types:
-      - string
-      - integer
-      - number
-      - boolean
-      - object
-      - array
-      - any
-      - 'null'
+      casing: snake             # title | snake | camel | pascal | any
+      numbers: false            # Allow numbers in property names
+      reserved: []              # Reserved property names
+    data_types: [               # Allowed data types
+        string, integer, number, boolean, object, array, any, 'null'
+    ]
 
-artifacts:
-  dbt:
+# ARTIFACTS CONFIG -----------------------------------------------------------------------
+artifacts:                      # Configure how data artifacts are built
+  dbt:                          # dbt package config
     sources:
-      prefix: __src_
+      prefix: __src_            # Source files start with this prefix
     models:
-      prefix: stg_
-      filter:
-        where received_at < current_date
+      prefix: stg_              # Model files start with this prefix
+      filter:                   # Filter for model files (can be empty string)
+        where received_at < get_date()
     docs:
-      prefix: _stg_
-      in_folder: false
-      tests: {
-        "id": ["unique", "not_null"],
-      }
+      prefix: _stg_             # Docs files start with this prefix
+      in_folder: false          # Docs files in separate folder?
+      tests:                    # Add generic dbt tests for columns found in schemas
+        id: [unique, not_null]
