@@ -1,4 +1,4 @@
-# demo-reflekt
+# reflekt-jaffle-shop
 A demo [Reflekt](https://github.com/GClunies/reflekt) project showing how to:
 - Define event schemas
 - Pull schema(s) from a schema registry in [JSONschema](https://json-schema.org/) format.

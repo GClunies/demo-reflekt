@@ -1,9 +1,9 @@
 # Setup for python env using conda:
 #   1. Install conda env with poetry dependency
 #         conda env update --file ./environment.yml --prune
-#   2. Activate the conda env `source activate reflekt-conda` OR `conda activate reflekt-conda`
+#   2. Activate the conda env `source activate reflekt-jaffle-shop` OR `conda activate reflekt-jaffle-shop`
 #   3. Run `poetry install` ... this will install the dependencies from poetry.lock INSIDE the conda env (magic!)
-name: demo-reflekt-conda
+name: reflekt-jaffle-shop
 channels:
   - conda-forge
   - defaults

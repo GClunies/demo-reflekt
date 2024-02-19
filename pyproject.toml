@@ -9,6 +9,12 @@ readme = "README.md"
 python = ">=3.9,<3.12"
 reflekt = "^0.5.0"
 
+[tool.poetry.group.dev.dependencies]
+faker = "^23.2.1"
+ruff = "^0.2.2"
+pandas = "^2.2.0"
+amplitude-analytics = "^1.1.4"
+rudder-sdk-python = "^2.0.2"
 
 [build-system]
 requires = ["poetry-core"]
