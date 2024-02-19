@@ -1,14 +1,13 @@
 [tool.poetry]
-name = "demo-reflekt"
+name = "reflekt-jaffle-shop"
 version = "0.1.0"
 description = ""
-authors = ["Greg Clunies <greg.clunies@gmail.com>"]
+authors = ["Greg Clunies <greg@reflekt-ci.com>"]
 readme = "README.md"
-packages = [{include = "demo_reflekt"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
-reflekt = "^0.3.24"
+python = ">=3.9,<3.12"
+reflekt = "^0.5.0"
 
 
 [build-system]
